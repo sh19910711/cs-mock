@@ -1,6 +1,6 @@
 ## :hammer: mockup - Just mock up for codestand-io
 
-### 0. Motto :hankey:
+### 0. Motto :sparkles: 
 
 * Programmable mockup as a data specification
 * Show the direction of the road ahead visually
