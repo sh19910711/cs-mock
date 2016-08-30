@@ -15,7 +15,7 @@
 * server-side: `app/*.rb`
 * client-side: `app/views/*.slim`
 
-### Roadmap
+### :checkered_flag: Roadmap
 
 #### Mockup (first-step)
 
