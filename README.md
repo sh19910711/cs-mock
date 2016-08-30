@@ -1,16 +1,16 @@
 ## :hammer: mockup - Just mock up for codestand-io
 
-### Motto
+### :hankey: Motto
 
 * Programmable mockup as a specification of data
 * Show the direction of the road ahead visually
 * No necessity to do all things
 
-### Run
+### :runner: Run
 
     $ bundle exec rackup
 
-### Structure
+### :heavy_check_mark: Structure
 
 * server-side: `app/*.rb`
 * client-side: `app/views/*.slim`
