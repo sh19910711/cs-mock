@@ -1,0 +1,55 @@
+// header
+div.uk-container.uk-container-center
+  nav.uk-navbar
+    a.uk-navbar-brand index
+
+// contents
+div.uk-container.uk-container-center
+  // applications
+  div.uk-grid#apps
+
+// CSS
+sass:
+  body 
+    backgrond: #fff
+    color: #333
+
+// JavaScript
+coffee:
+  $ = jQuery
+
+  request = (method, url)->
+    $.ajax
+      type: method
+      url: url
+      dataType: 'json'
+
+  class Mgmt
+    ENDPOINT = '/mgmt'
+
+    @request: (method, path)->
+      request method, "#{ENDPOINT}/#{path}".replace(/\/\//g, '/')
+
+  class App
+    @fetchAll: ->
+      new Promise (resolve, reject)->
+        Mgmt.request('GET', '/apps')
+          .done (res)->
+            resolve res['applications'].map (app)->
+              new App(app)
+          .fail (res)->
+            reject(res)
+
+    constructor: (detail)->
+      @name = detail.name
+
+    render: ->
+      el = document.createElement('div')
+      el.innerText = @name
+      el
+
+  # entry point
+  App.fetchAll().then (apps)->
+    el = $('#apps')
+    apps.forEach (app)->
+      el.append app.render()
