@@ -1,4 +1,4 @@
-## mockup - Just mock up for codestand-io
+## :hammer: mockup - Just mock up for codestand-io
 
 ### Motto
 
