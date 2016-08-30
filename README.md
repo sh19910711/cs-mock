@@ -1,21 +1,21 @@
 ## :hammer: mockup - Just mock up for codestand-io
 
-### :hankey: 0. Motto
+### 0. Motto :hankey:
 
 * Programmable mockup as a specification of data
 * Show the direction of the road ahead visually
 * No necessity to do all things
 
-### :runner: 1. Run
+### 1. Run :runner:
 
     $ bundle exec rackup
 
-### :heavy_check_mark: 2. Structure
+### 2. Structure :heavy_check_mark:
 
 * server-side: `app/*.rb`
 * client-side: `app/views/*.slim`
 
-### :checkered_flag: 3. Roadmap
+### 3. Roadmap :checkered_flag:
 
 #### Mockup (first-step)
 
