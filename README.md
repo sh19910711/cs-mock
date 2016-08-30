@@ -2,7 +2,7 @@
 
 ### 0. Motto :hankey:
 
-* Programmable mockup as a specification of data
+* Programmable mockup as a data specification
 * Show the direction of the road ahead visually
 * No necessity to do all things
 
