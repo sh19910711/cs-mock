@@ -3,8 +3,8 @@
 ### Motto
 
 * Programmable mockup as a specification of data
-* Show the direction of the road ahead visually.
-* No necessity to do all things.
+* Show the direction of the road ahead visually
+* No necessity to do all things
 
 ### Run
 
