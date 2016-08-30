@@ -19,15 +19,11 @@
 
 #### Mockup (first-step)
 
-* Slim (markup)
-* Coffee (client)
-* Sass (ui)
+Slim (markup) / Coffee (client) / Sass (ui)
 
 #### Make it portable (second-step)
 
-* Slim (markup)
-* JavaScript with Babel (client)
-* Postcss (ui)
+Slim (markup) / JavaScript with Babel (client) / Postcss (ui)
 
 --
 
