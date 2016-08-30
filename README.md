@@ -1,10 +1,19 @@
-## mockup - Just mock up for the codestand-io
+## mockup - Just mock up for codestand-io
 
 ### Motto
 
-* Programmable mockup as a specification
+* Programmable mockup as a specification of data
 * Show the direction of the road ahead visually.
 * No necessity to do all things.
+
+### Run
+
+    $ bundle exec rackup
+
+### Structure
+
+* server-side: `app/*.rb`
+* client-side: `app/views/*.slim`
 
 ### Roadmap
 
@@ -19,14 +28,5 @@
 * Slim (markup)
 * JavaScript with Babel (client)
 * Postcss (ui)
-
-### Run
-
-    $ bundle exec rackup
-
-### Others
-
-* server-side: `app/*.rb`
-* client-side: `app/views/*.slim`
 
 Thanks.
