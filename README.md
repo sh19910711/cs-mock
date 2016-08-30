@@ -17,14 +17,12 @@
 
 ### 3. Roadmap :checkered_flag:
 
-#### Mockup (first-step)
-
-Slim (markup) / Coffee (client) / Sass (ui)
-
-#### Make it portable (second-step)
-
-Slim (markup) / JavaScript with Babel (client) / Postcss (ui)
+1. Mockup (first-step)
+  - with Slim (markup) / Coffee (client) / Sass (ui)
+2. Make it portable (second-step)
+  - Slim (markup) / JavaScript with Babel (client) / Postcss (ui) 
+3. E2E testing (third-step)
 
 --
 
-Thank you.
+Cheers!
