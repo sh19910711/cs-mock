@@ -1,9 +1,6 @@
 class CodestandIO < Base
-  get '/' do
-    slim :index
-  end
-
-  get '/dashboard' do
-    slim :dashboard
-  end
+  get('/') { slim :index, layout: nil }
+  get('/apps') { slim :apps }
+  get('/devices') { slim :devices }
+  get('/settings') { slim :settings }
 end
