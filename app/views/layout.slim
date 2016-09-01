@@ -1,12 +1,31 @@
 doctype html
 
 html
-  head
-    meta charset="utf-8"
-    title codestand.io
-    script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"
-    script src="/lib/uikit/js/uikit.min.js"
-    link rel="stylesheet" href="/lib/uikit/css/uikit.min.css"
+  head== slim :_head
 
   body
-    == yield
+    // top menu
+    nav.cs-navbar.uk-navbar.uk-navbar-attached
+      .uk-container
+        a.uk-navbar-brand href="/" codestand.io
+
+    .uk-container
+      .uk-grid
+        // side menu
+        .cs-sidebar.uk-width-medium-1-4
+          // main
+          ul.uk-nav
+            li.uk-nav-header Management
+            li
+              a href="/apps" Apps
+            li
+              a href="/devices" Devices
+          // others
+          ul.uk-nav
+            li.uk-nav-header Others
+            li
+              a href="/settings" Settings 
+
+        // contents
+        .uk-width-medium-3-4
+          == yield

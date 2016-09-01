@@ -1,20 +1,19 @@
-// header
+// Contents
 div.uk-container.uk-container-center
-  nav.uk-navbar
-    a.uk-navbar-brand index
+  // header
+  .cs-page-header.uk-article
+    h1.uk-article-title Apps
+    p.uk-article-lead Hello, World.
 
-// contents
-div.uk-container.uk-container-center
   // applications
   div.uk-grid#apps
 
-// CSS
-sass:
-  body 
-    backgrond: #fff
-    color: #333
+script#template-app-panel type="text/template"
+  div.cs-app-panel.uk-panel
+    h2.uk-panel-title <%- name %>
+    p <%- desc %>
 
-// JavaScript
+// Client
 coffee:
   $ = jQuery
 
@@ -42,11 +41,17 @@ coffee:
 
     constructor: (detail)->
       @name = detail.name
+      @desc = 'TODO: app description?'
 
     render: ->
-      el = document.createElement('div')
-      el.innerText = @name
-      el
+      wrapper = document.createElement('div')
+      wrapper.className = 'uk-width-1-3'
+      wrapper.innerHTML = renderTemplate('app-panel', @)
+      wrapper
+
+  renderTemplate = (id, data)->
+    tmpl = _.template($("#template-#{id}").html())
+    tmpl(data)
 
   # entry point
   App.fetchAll().then (apps)->

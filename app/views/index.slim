@@ -1,11 +1,30 @@
-section.header.uk-container.uk-container-center
-  h1.uk-heading-large.uk-text-center
-    | codestand.io
-  p.uk-text-large
-    | TODO: awesome short description
+doctype html
 
-section.features.uk-container.uk-container-center
-  h2.uk-heading-large.uk-text-center
-    | Features
-  p.uk-text-large
-    | TODO: short description
+html
+  head== slim :_head
+
+  body
+    .uk-container.uk-container-center
+      section
+        h1.uk-heading-large.uk-text-center
+          | codestand.io
+        p.uk-text-large
+          | TODO: awesome short description
+
+      section
+        h2.uk-heading-large.uk-text-center
+          | Features
+        p.uk-text-large
+          | TODO: short description
+
+      hr
+      hr
+      hr
+
+      section
+        h2 Links
+        ul
+        - CodestandIO.routes["GET"].each do |r|
+          - path = r[0].to_s.match(/\?-mix:\\A\\(.*)\\z/)[1]
+          li
+            a href="#{path}"= path
