@@ -1,4 +1,5 @@
-language: node_js
+language: ruby
+rvm: 2.3.1
 node_js: 6.3.1
 
 script: echo hello
