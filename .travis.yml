@@ -1,0 +1,18 @@
+language: node_js
+node_js: 6.3.1
+
+install:
+  - rvm install 2.3.1 --install --binary --fuzzy
+  - bundle install -j4
+
+script:
+  - echo to add tests
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "LXTfsrT2b654YEql/WfNVmp7tlaH/4XoU6WRq1H9Fj5k8jQForWvVnPppqmhZehttNijlLfLpiu0RPHUf3f5g+SPLc9KW2g83605W+lvv+POJx4hMBBEeUPSvXOw87dtsUlQS7KFbnbQ/0O2bNZvGKrtmqjMZRS4XIEZwyZ3VEtWxAVk9jAqdkDgIIyL2nkFmJEOrU6U8a1f5mxAAw1zqb8F6HPuIl+wea+iwvQ9qbSCUvPBRZmJANmvnBOInPS46Stv26iCDdX1suITlkclpSII/fU0oIvC0yRxaIXN/Y6qN+eEeEjZi7tHnrHA/60+r6xBbsJT5xHbAa+DbkU+/zKjdG9V242chvTHF9C5p1XHCFrct9uf5mmW2/sz0cN1judQYskuh7xjnOu3jG+vfFSi8tQpjwkit6EXDL9nP3wXtszygyDjjsSHEESytLFY405nQ+HN29hKW0XNNB/mqGLjpRj+e7NsXxb/cE7jGLHyVLCv9KAsvT/G8t3q0kipYYy2t03ceP20J1Do/vrKZm3vZ1ztNr4CIABjIaJIL064u8TDZ1lbm9PvMuXwfpFYPj4k5F2WBvLMGE/h+mkarLE3m/5eyCCey03a1KXA1+zSkAL00V6LSrrLZ3QicZM8HAoWQQ78IFdechMPfa/FgHvrxFbIzOdXo2xndy8mUw8="
+  app:
+    master: csmock
+  on:
+    repo: codestand/mockup
