@@ -8,6 +8,7 @@ GEM
     coffee-script-source (1.10.0)
     execjs (2.7.0)
     multi_json (1.12.1)
+    puma (3.6.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -36,6 +37,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-script
+  puma
   sass
   sinatra
   sinatra-contrib

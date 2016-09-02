@@ -1,6 +1,8 @@
 language: node_js
 node_js: 6.3.1
 
+script: echo hello
+
 deploy:
   provider: heroku
   api_key:
@@ -8,4 +10,4 @@ deploy:
   app:
     production: csmock
   on:
-    repo: sh19910711/mockup
+    repo: sh19910711/cs-mock
