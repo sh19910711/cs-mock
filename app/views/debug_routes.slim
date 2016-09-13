@@ -1,0 +1,14 @@
+doctype html
+
+html
+  head
+    meta charset="utf-8"
+    title Routes of mockup
+
+  body
+    h1 Routes
+    ul
+    - CodestandIO.routes["GET"].each do |r|
+      - path = r[0].to_s.match(/\?-mix:\\A\\(.*)\\z/)[1]
+      li
+        a href="#{path}"= path

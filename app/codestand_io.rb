@@ -1,6 +1,6 @@
 class CodestandIO < Base
-  get('/') { slim :index, layout: nil }
-  get('/apps') { slim :apps }
-  get('/devices') { slim :devices }
-  get('/settings') { slim :settings }
+  get('/') { slim :io_index, layout: nil }
+  get('/apps') { slim :io_apps }
+  get('/devices') { slim :io_devices }
+  get('/settings') { slim :io_settings }
 end

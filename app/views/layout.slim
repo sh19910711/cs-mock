@@ -1,31 +1,34 @@
 doctype html
 
-html
+html.cs-whole
   head== slim :_head
 
   body
-    // top menu
-    nav.cs-navbar.uk-navbar.uk-navbar-attached
-      .uk-container
-        a.uk-navbar-brand href="/" codestand.io
+    == slim :_navbar_online
 
-    .uk-container
-      .uk-grid
-        // side menu
-        .cs-sidebar.uk-width-medium-1-4
-          // main
-          ul.uk-nav
-            li.uk-nav-header Management
-            li
-              a href="/apps" Apps
-            li
-              a href="/devices" Devices
-          // others
-          ul.uk-nav
-            li.uk-nav-header Others
-            li
-              a href="/settings" Settings 
+    .cs-grid.uk-grid
+      .cs-sidebar-background.uk-hidden-small.uk-width-medium-1-4
 
-        // contents
-        .uk-width-medium-3-4
-          == yield
+      .cs-sidebar.uk-width-medium-1-4
+        ul.cs-nav.uk-nav
+          li.uk-nav-header
+            span= " Management"
+          li
+            a href="/apps"
+              i.cs-icon.uk-icon-th
+              span= " Apps"
+          li
+            a href="/devices"
+              i.cs-icon.uk-icon-tablet
+              span= " Devices"
+        ul.cs-nav.uk-nav
+          li.uk-nav-header
+            span= " Others"
+          li
+            a href="/settings"
+              i.cs-icon.uk-icon-cogs
+              span= " Settings"
+
+      // contents
+      .uk-width-medium-3-4
+        == yield
