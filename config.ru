@@ -17,4 +17,4 @@ require_relative 'app/debug_app'
 map('/') { run CodestandIO }
 map('/auth') { run Auth }
 map('/mgmt') { run Mgmt }
-map('/debug') { run DebuApp}
+map('/debug') { run DebugApp }
