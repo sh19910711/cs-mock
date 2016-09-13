@@ -1,11 +1,103 @@
 sass:
-  // base design
+  // base
   *
     font-family: 'Inconsolata', monospace
 
-  // layout
+  .cs-whole
+    &
+      background: #334
+    &.cs-index-page
+      background: #333
+
   .cs-navbar
-    margin-bottom: 24px
-  
+    background: #003
+
+  .cs-jumbotron
+    &
+      background: #334
+    &.cs-light
+      background: #445
+    &.cs-end
+      background: #333
+
+  // style
+  html, span, i, p, h1, h2, h3, h4, h5, h6
+    font-family: Ubuntu
+    color: #eef
+
+  .cs-article
+    .cs-article-lead
+      color: #eef
+
+  .cs-panel-outer
+    &, &:hover, &:active
+      text-decoration: none
+  .cs-panel, .cs-panel:last-child
+    padding: 9px
+    margin-bottom: 3px
+    .cs-title, .cs-desc
+      color: #eee
+    &
+      background: #556
+    &:hover
+      background: #666
+
+  .cs-brand
+    &
+      color: #eef
+    &:hover, &:active, &:focus
+      color: #ccc
+
+  .cs-leading > h1
+    font-family: 'Source Sans Pro', sans-serif
+
+  .cs-icon-big
+    font-size: 128px
+
+  .cs-navbar-nav
+    li > a
+      &
+        color: #fff
+      &:hover, &:active, &:focus
+        color: #99f
+        background: transparent
+
+  .cs-sidebar
+    .cs-nav > li
+      &
+        color: #cce
+      .cs-icon
+        width: 18px
+        text-align: center
+    .cs-nav > li > a
+      &:hover, &:active, &:focus
+        background: #666
+  .cs-sidebar-background
+    background: #445
+
+  // layout
   .cs-page-header
     margin-bottom: 24px
+
+  .cs-article
+    margin-bottom: 24px
+
+  .cs-jumbotron
+    .cs-title
+      margin: 32px 0
+
+  .cs-jumbotron
+    &
+      padding: 36px 0
+    &.cs-end
+      padding: 72px 0
+
+  .cs-grid
+    padding-top: 32px
+
+  .cs-sidebar-background
+    z-index: -1
+    position: fixed
+    top: 0
+    margin-left: 5px
+    height: 100%
