@@ -1,103 +1,110 @@
 sass:
-  // base
+  // color scheme
+  $nav-color: #2a2a5d
+  $color-base: #595977
+  $color-dark: #414190
+  $color-light: #6c6c90
+  $color-light-hover: #7c7ca0
+  $color-super-light: #a6a6dd
+  $color-end: #334
+  $color-end-hover: #445
+  $text-color: #eee
+  $text-color-hover: #ccc
+
   *
     font-family: 'Inconsolata', monospace
 
   .cs-whole
     &
-      background: #334
+      background: $color-base
     &.cs-index-page
-      background: #333
-
-  .cs-navbar
-    background: #003
+      background: $color-end
 
   .cs-jumbotron
-    &
-      background: #334
-    &.cs-light
-      background: #445
-    &.cs-end
-      background: #333
+    &-dark
+      background: $color-base
+    &-light
+      background: $color-light
+    &-end
+      background: $color-end
 
-  // style
   html, span, i, p, h1, h2, h3, h4, h5, h6
     font-family: Ubuntu
-    color: #eef
-
-  .cs-article
-    .cs-article-lead
-      color: #eef
+    color: $text-color
 
   .cs-panel-outer
     &, &:hover, &:active
       text-decoration: none
-  .cs-panel, .cs-panel:last-child
-    padding: 9px
-    margin-bottom: 3px
-    .cs-title, .cs-desc
-      color: #eee
-    &
-      background: #556
-    &:hover
-      background: #666
-
-  .cs-brand
-    &
-      color: #eef
-    &:hover, &:active, &:focus
-      color: #ccc
-
-  .cs-leading > h1
-    font-family: 'Source Sans Pro', sans-serif
-
-  .cs-icon-big
-    font-size: 128px
-
-  .cs-navbar-nav
-    li > a
+    .cs-panel, .cs-panel:last-child
+      padding: 9px
+      margin-bottom: 3px
+      .cs-title, .cs-desc
+        color: $text-color
       &
-        color: #fff
+        background: $color-light
+      &:hover
+        background: $color-light-hover
+
+  .cs-icon
+    &-big
+      font-size: 128px
+      color: $text-color
+
+  .cs-navbar
+    &
+      background: $nav-color
+      border-bottom: 1px solid $color-dark
+    .cs-brand
+      &
+        color: $text-color
       &:hover, &:active, &:focus
-        color: #99f
-        background: transparent
+        color: $text-color-hover
+    .cs-navbar-nav
+      li > a
+        &
+          color: $text-color
+        &:hover, &:active, &:focus
+          color: $color-light
+          background: transparent
+          border-bottom: 3px solid $color-light
 
   .cs-sidebar
     .cs-nav > li
       &
-        color: #cce
+        color: $text-color
       .cs-icon
         width: 18px
         text-align: center
     .cs-nav > li > a
       &:hover, &:active, &:focus
-        background: #666
-  .cs-sidebar-background
-    background: #445
-
-  // layout
-  .cs-page-header
-    margin-bottom: 24px
-
-  .cs-article
-    margin-bottom: 24px
-
-  .cs-jumbotron
-    .cs-title
-      margin: 32px 0
-
-  .cs-jumbotron
-    &
-      padding: 36px 0
-    &.cs-end
-      padding: 72px 0
-
-  .cs-grid
-    padding-top: 32px
+        background: $color-end-hover
 
   .cs-sidebar-background
+    background: $color-end
     z-index: -1
     position: fixed
     top: 0
     margin-left: 5px
     height: 100%
+
+  .cs-article
+    margin-bottom: 24px
+    & > *
+      color: $text-color
+
+  .cs-jumbotron
+    &
+      padding: 36px 0
+    &-end
+      padding: 72px 0
+      padding-top: 36px
+    .cs-leading
+      &-top > *, .cs-heading
+        color: #eee
+    .cs-title
+      font-family: 'Source Sans Pro', sans-serif
+      color: #fff
+      margin: 32px 0
+
+  .cs-grid
+    padding-top: 32px
