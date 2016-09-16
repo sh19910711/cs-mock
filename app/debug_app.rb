@@ -1,5 +1,5 @@
 class DebugApp < Base
   configure :development do
-    get('/routes') { slim :routes, layout: nil }
+    get('/routes') { slim :debug_routes, layout: nil }
   end
 end
