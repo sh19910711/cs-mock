@@ -7,8 +7,18 @@ class Mgmt < Base
     { :name => 'awesome-app', },
     { :name => 'example-app', },
   ]
-  before { @apps ||= DEFAULT_APPS }
 
+  DEFAULT_DEVICES = [
+    { name: 'my-home-rpi3', board: 'rpi3', status: 'running' },
+    { name: 'my-lab-rpi3', board: 'rpi3', status: 'down' },
+    { name: 'mitoh-esp8266', board: 'esp8266', status: 'ready' },
+  ]
+  
+  before do
+    @apps ||= DEFAULT_APPS
+    @devices ||= DEFAULT_DEVICES
+  end
+  
   # returns all applications
   get '/apps' do
     { :applications => @apps }.to_json
@@ -17,5 +27,10 @@ class Mgmt < Base
   # creates new application
   post '/apps' do
     @apps << { :name => params[:name] }
+  end
+
+  # returns all devices
+  get '/devices' do
+    { :devices => @devices }.to_json
   end
 end
