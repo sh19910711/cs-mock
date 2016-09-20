@@ -16,7 +16,8 @@ test:
   database: db/test
 EOF
 conf['production'] = {
-  'url' => ENV['DATABASE_URL']
+  'url' => ENV['DATABASE_URL'],
+  'pool' => '16',
 }
 
 # connect database
