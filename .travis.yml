@@ -2,11 +2,25 @@ language: node_js
 node_js: 6.3.1
 
 install:
+  - npm install
+
   - rvm install 2.3.1 --install --binary --fuzzy
+  - ruby --version
+  - bundle --version
   - bundle install -j4
 
+before_script:
+  - source script/xvfb_source.bash
+
 script:
-  - echo to add tests
+  - bash script/run_server.bash
+  - mkdir -p docs/screenshot
+  - "$(npm bin)/coffee test/screenshot.coffee http://localhost:8080 docs/screenshot/"
+  - "for x in docs/screenshot/*.png; do bash script/upload.bash $x; done"
+
+cache:
+  - bundler
+  - node_modules
 
 deploy:
   provider: heroku
