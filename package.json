@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/sh19910711/cs-mock/issues"
   },
-  "homepage": "https://github.com/sh19910711/cs-mock#readme"
+  "homepage": "https://github.com/sh19910711/cs-mock#readme",
+  "dependencies": {
+    "coffee-script": "^1.10.0",
+    "nightmare": "^2.7.0"
+  }
 }
