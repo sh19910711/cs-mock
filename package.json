@@ -1,0 +1,26 @@
+{
+  "name": "cs-mock",
+  "version": "1.0.0",
+  "description": "### 0. Motto :sparkles:",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sh19910711/cs-mock.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sh19910711/cs-mock/issues"
+  },
+  "homepage": "https://github.com/sh19910711/cs-mock#readme",
+  "devDependencies": {
+    "coffee-script": "^1.10.0",
+    "nightmare": "^2.7.0"
+  }
+}
