@@ -1,0 +1,60 @@
+.uk-container.uk-container-center
+  // TODO: more interactive
+  .uk-grid
+    .cs-dashboard.uk-width-3-5
+      .cs-article.uk-article
+        h1.cs-article-title.uk-article-title Activities
+
+      .cs-news.uk-flex.uk-panel.uk-panel-divider
+        .cs-news-type.cs-width-medium.uk-text-right.uk-flex.uk-flex-middle
+          i.cs-icon-medium.uk-icon-user
+        .uk-margin-left
+          .cs-news-time 3 minites ago
+          .cs-news-title Bob created application bob/oh-my-app
+
+      .cs-news.uk-flex.uk-panel.uk-panel-divider
+        .cs-width-medium.uk-text-right.uk-flex.uk-flex-middle
+          i.cs-icon-medium.uk-icon-star
+        .uk-margin-left
+          .cs-news-time 12 minites ago
+          .cs-news-title Alice starred merry/awesome-iot-app
+
+      .cs-news.uk-flex.uk-panel.uk-panel-divider
+        .cs-width-medium.uk-text-right.uk-flex.uk-flex-middle
+          i.cs-icon-medium.uk-icon-info-circle
+        .uk-margin-left
+          .cs-news-time 54 minites ago
+          .cs-news-title Bob commented on merry/awesome-iot-app
+          .cs-news-detail.uk-flex
+            cs-width-medium.i.cs-icon-medium.uk-icon-user
+            .cs-news-message.uk-margin-left
+              | This is very helpful! Thanks!
+
+      .cs-news.uk-flex.uk-panel.uk-panel-divider
+        .cs-width-medium.uk-text-right.uk-flex.uk-flex-middle
+          i.cs-icon-medium.uk-icon-star
+        .uk-margin-left
+          .cs-news-time 55 minites ago
+          .cs-news-title Bob starred merry/awesome-iot-app
+
+    .cs-dashboard-sidebar.uk-width-2-5
+      .cs-dashboard-sidebar-apps.cs-panel.uk-panel
+        ul.cs-nav.uk-nav.uk-nav-side
+          li.uk-nav-header
+            span Your Apps
+
+script#template-app-panel type="text/template"
+  li.cs-app
+    a.cs-app-link
+      i.uk-icon-paper-plane
+      span.cs-app-name <%- name %>
+
+coffee:
+  $ = jQuery
+
+  $ ->
+    elApps = $('.cs-dashboard-sidebar-apps > ul')
+
+    App.fetchAll().then (apps)->
+      apps.forEach (app)->
+        elApps.append app.render()

@@ -8,50 +8,14 @@ div.uk-container.uk-container-center
   div.cs-panels.uk-grid#apps
 
 script#template-app-panel type="text/template"
-  div.cs-panel.uk-panel
-    h2.cs-title.uk-panel-title <%- name %>
-    p.cs-desc <%- desc %>
+  a.cs-app-link.cs-panel-outer.uk-width-1-3
+    div.cs-panel.uk-panel
+      h2.cs-title.uk-panel-title <%- name %>
+      p.cs-desc <%- desc %>
 
 // Client
 coffee:
   $ = jQuery
-
-  request = (method, url)->
-    $.ajax
-      type: method
-      url: url
-      dataType: 'json'
-
-  class Mgmt
-    ENDPOINT = '/mgmt'
-
-    @request: (method, path)->
-      request method, "#{ENDPOINT}/#{path}".replace(/\/\//g, '/')
-
-  class App
-    @fetchAll: ->
-      new Promise (resolve, reject)->
-        Mgmt.request('GET', '/apps')
-          .done (res)->
-            resolve res['applications'].map (app)->
-              new App(app)
-          .fail (res)->
-            reject(res)
-
-    constructor: (detail)->
-      @name = detail.name
-      @desc = 'TODO: app description?'
-
-    render: ->
-      wrapper = document.createElement('a')
-      wrapper.className = 'cs-panel-outer uk-width-1-3'
-      wrapper.href = "/apps/#{@name}"
-      wrapper.innerHTML = renderTemplate('app-panel', @)
-      wrapper
-
-  renderTemplate = (id, data)->
-    tmpl = _.template($("#template-#{id}").html())
-    tmpl(data)
 
   # entry point
   App.fetchAll().then (apps)->

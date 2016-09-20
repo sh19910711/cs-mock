@@ -8,8 +8,10 @@ sass:
   $color-super-light: #a6a6dd
   $color-end: #334
   $color-end-hover: #445
+
   $text-color: #eee
   $text-color-hover: #ccc
+  $text-color-neutral: #bbb
 
   *
     font-family: 'Inconsolata', monospace
@@ -28,7 +30,7 @@ sass:
     &-end
       background: $color-end
 
-  html, span, i, p, h1, h2, h3, h4, h5, h6
+  html, div, span, i, p, h1, h2, h3, h4, h5, h6
     font-family: Ubuntu
     color: $text-color
 
@@ -45,10 +47,41 @@ sass:
       &:hover
         background: $color-light-hover
 
+  // size
   .cs-icon
-    &-big
+    &-large
       font-size: 128px
-      color: $text-color
+    &-medium
+      font-size: 32px
+
+  .cs-width
+    &-large
+      font-size: 128px
+    &-medium
+      font-size: 32px
+
+  .cs-dashboard
+    .cs-news
+      &-time
+        color: $text-color-neutral
+      &-title
+        font-weight: bold
+        line-height: 32px
+        font-size: 18px
+      &-mesasge
+    &-sidebar
+      &-apps
+        .cs-app .cs-app-name
+          margin-left: 3px
+
+    &-sidebar
+      .cs-panel
+        border-radius: 3px
+        padding: 6px
+        background: $color-light
+
+  input.cs-button
+    color: $color-dark
 
   .cs-navbar
     &
@@ -60,6 +93,8 @@ sass:
       &:hover, &:active, &:focus
         color: $text-color-hover
     .cs-navbar-nav
+      li > *
+        line-height: 40px
       li > a
         &
           color: $text-color
