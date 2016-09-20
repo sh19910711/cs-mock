@@ -1,11 +1,28 @@
 require 'active_record'
+require 'yaml'
+require 'erb'
 
-ActiveRecord::Base.logger = Logger.new(STDERR)
+if ENV['RACK_ENV'] == 'development'
+  ActiveRecord::Base.logger = Logger.new(STDERR)
+end
 
-ActiveRecord::Base.establish_connection(
-  adapter:   'sqlite3',
-  database:  'db.txt',
-)
+# config
+conf = YAML.load <<EOF
+development:
+  adapter: sqlite3
+  database: db/development
+test:
+  adapter: sqlite3
+  database: db/test
+EOF
+conf['production'] = {
+  'url' => ENV['DATABASE_URL']
+}
+
+# connect database
+env_conf = conf[ENV['RACK_ENV'] || 'development']
+FileUtils.rm env_conf['database'] if File.exists?(env_conf['database'])
+ActiveRecord::Base.establish_connection(env_conf)
 
 ActiveRecord::Schema.define do
   create_table :apps do |t|

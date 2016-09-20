@@ -6,7 +6,8 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 
 gem 'activerecord'
-gem 'sqlite3'
+group(:development, :test) { gem 'sqlite3' }
+group(:production) { gem 'pg' }
 
 gem 'slim'
 gem 'sass'
