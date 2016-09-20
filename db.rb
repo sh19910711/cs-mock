@@ -21,8 +21,11 @@ conf['production'] = {
 
 # connect database
 env_conf = conf[ENV['RACK_ENV'] || 'development']
-FileUtils.rm env_conf['database'] if File.exists?(env_conf['database'] || '')
 ActiveRecord::Base.establish_connection(env_conf)
+
+# reset
+con = ActiveRecord::Base.connection
+con.tables.each {|t| con.drop_table(t) }
 
 ActiveRecord::Schema.define do
   create_table :apps do |t|
