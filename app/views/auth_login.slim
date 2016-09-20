@@ -1,5 +1,5 @@
 .cs-grid.uk-grid
-  .cs-form.uk-form.uk-width-1-1
+  form.cs-form.uk-form.uk-width-1-1 method="post" action="/auth/login"
     fieldset
       legend.uk-text-large Sign in to codestand.io
       .uk-form-row
@@ -11,5 +11,4 @@
         .uk-form-controls
           input name="user.password" value="password"
       .uk-form-row
-        a href="/apps"
-          button.uk-button Sign in
+        input.cs-button.uk-button type="submit" value="Sign in"

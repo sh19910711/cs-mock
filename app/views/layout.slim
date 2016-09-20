@@ -7,27 +7,7 @@ html.cs-whole
     == slim :_navbar_online
 
     .cs-grid.uk-grid
-      .cs-sidebar-background.uk-hidden-small.uk-width-medium-1-4
-
-      .cs-sidebar.uk-width-medium-1-4
-        ul.cs-nav.uk-nav
-          li.uk-nav-header
-            span= " Management"
-          li
-            a href="/apps"
-              i.cs-icon.uk-icon-th
-              span= " Apps"
-          li
-            a href="/devices"
-              i.cs-icon.uk-icon-tablet
-              span= " Devices"
-        ul.cs-nav.uk-nav
-          li.uk-nav-header
-            span= " Others"
-          li
-            a href="/settings"
-              i.cs-icon.uk-icon-cogs
-              span= " Settings"
+      == slim :_sidebar
 
       // contents
       .uk-width-medium-3-4

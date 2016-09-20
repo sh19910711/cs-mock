@@ -1,0 +1,37 @@
+coffee:
+  $ = jQuery
+
+  request = (method, url)->
+    $.ajax
+      type: method
+      url: url
+      dataType: 'json'
+
+  renderTemplate = (id, data)->
+    tmpl = _.template($("#template-#{id}").html())
+    tmpl(data)
+
+  window.Mgmt = class Mgmt
+    ENDPOINT = '/mgmt'
+
+    @request: (method, path)->
+      request method, "#{ENDPOINT}/#{path}".replace(/\/\//g, '/')
+
+  window.App = class App
+    @fetchAll: ->
+      new Promise (resolve, reject)->
+        Mgmt.request('GET', '/apps')
+          .done (res)->
+            resolve res['applications'].map (app)->
+              new App(app)
+          .fail (res)->
+            reject(res)
+
+    constructor: (detail)->
+      @name = detail.name
+      @desc = 'TODO: app description?'
+
+    render: ->
+      el = $(renderTemplate('app-panel', @))
+      el.find('.cs-app-link').attr('href', "/apps/#{@name}")
+      el
