@@ -5,5 +5,5 @@ class Auth < Base
     redirect '/dashboard'
   }
   get('/register') { slim :auth_register, :layout => :layout_nosidebar }
-  get('/logout') { redirect '/' }
+  get('/logout') { session.clear; redirect '/' }
 end

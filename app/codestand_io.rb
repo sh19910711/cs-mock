@@ -1,4 +1,5 @@
 class CodestandIO < Base
+  before { session[:user_login_id] = 'myuser' }
   get('/') { slim :io_index, layout: nil }
   get('/dashboard') { slim :io_dashboard }
   get('/apps') { slim :io_apps_index }
