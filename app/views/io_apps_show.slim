@@ -1,0 +1,16 @@
+.cs-app-container.uk-container.uk-container-center
+
+script#template-app-view type="text/template"
+  .cs-article.uk-article
+    h1.cs-article-title.uk-article-title <%- name %>
+    p.cs-article-lead.uk-article-lead TODO: description
+
+javascript:
+  window.APP_NAME = "#{@name}";
+
+coffee:
+  jQuery ->
+    el = $('.cs-app-container')
+
+    App.fetch(APP_NAME).then (app)->
+      el.append app.render()

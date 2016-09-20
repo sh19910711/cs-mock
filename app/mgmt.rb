@@ -1,36 +1,34 @@
 class Mgmt < Base
-  DEFAULT_APPS = [
-    { :name => 'plus-one-button', },
-    { :name => 'plus-one-counter', },
-    { :name => 'my-first-app', },
-    { :name => 'another-app', },
-    { :name => 'awesome-app', },
-    { :name => 'example-app', },
-  ]
-
-  DEFAULT_DEVICES = [
-    { name: 'my-home-rpi3', board: 'rpi3', status: 'running' },
-    { name: 'my-lab-rpi3', board: 'rpi3', status: 'down' },
-    { name: 'mitoh-esp8266', board: 'esp8266', status: 'ready' },
-  ]
-  
-  before do
-    @apps ||= DEFAULT_APPS
-    @devices ||= DEFAULT_DEVICES
-  end
-  
   # returns all applications
   get '/apps' do
-    { :applications => @apps }.to_json
+    { :applications => login_user.apps.all }.to_json
+  end
+
+  get '/apps/:name' do
+    login_user.apps.find_by(name: params[:name]).to_json
+  end
+
+  get '/apps/:user/:name' do
+    if u = User.find_by(login_id: params[:user])
+      if app = u.apps.find_by(name: params[:name])
+        app.to_json
+      else
+        halt 404
+      end
+    else
+      halt 404
+    end
   end
 
   # creates new application
   post '/apps' do
-    @apps << { :name => params[:name] }
+    login_user.apps.create(:name => params[:name])
+    { :msg => 'ok' }.to_json
   end
 
   # returns all devices
   get '/devices' do
+    @devices = Device.all
     { :devices => @devices }.to_json
   end
 end
