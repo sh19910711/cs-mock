@@ -1,8 +1,89 @@
-.cs-app-container.uk-container.uk-container-center
+.cs-app.uk-container.uk-container-center
+  .cs-app-header
+
+  .uk-grid
+    .uk-width-3-5
+      h2 Devices
+      .uk-grid
+        .cs-devices.cs-panels.uk-flex.uk-flex-wrap.uk-flex-wrap-bottom.uk-width-1-1
+          a.cs-device-link.cs-panels-panel-outer.uk-width-1-2
+            div.cs-panels-panel.uk-panel
+              h2.cs-title.uk-panel-title
+                i.uk-icon-flask
+                span.margin-left bob-esp-8266
+              p.cs-desc Bob's ESP8266
+
+          a.cs-device-link.cs-panels-panel-outer.uk-width-1-2
+            div.cs-panels-panel.uk-panel
+              h2.cs-title.uk-panel-title
+                i.uk-icon-flask
+                span.margin-left awesome-device
+              p.cs-desc Awesome device
+
+          a.cs-device-link.cs-panels-panel-outer.uk-width-1-2
+            div.cs-panels-panel.uk-panel
+              h2.cs-title.uk-panel-title
+                i.uk-icon-flask
+                span.margin-left another-one
+              p.cs-desc Another device
+
+          a.cs-device-link.cs-panels-panel-outer.uk-width-1-2
+            div.cs-panels-panel.uk-panel
+              h2.cs-title.uk-panel-title
+                i.uk-icon-flask
+                span.margin-left one-more-device
+              p.cs-desc One more device
+
+    .cs-device-activities.cs-dashboard.uk-width-2-5
+      h2 Activities
+
+      .uk-flex.uk-panel.uk-panel-divider
+        .cs-news-type.cs-width-medium.uk-text-right.uk-flex.uk-flex-middle
+          i.cs-icon-medium.uk-icon-bell-o.uk-icon-justify
+        .uk-margin-left
+          .cs-news-time 3 minites ago
+          .cs-news-title bob added new device bob-esp-8266
+
+      .uk-flex.uk-panel.uk-panel-divider
+        .cs-news-type.cs-width-medium.uk-text-right.uk-flex.uk-flex-middle
+          i.cs-icon-medium.uk-icon-arrow-circle-o-up.uk-icon-justify
+        .uk-margin-left
+          .cs-news-time 3 minites ago
+          .cs-news-title myuser deployed ver. 3.0.123
+
+      .uk-flex.uk-panel.uk-panel-divider
+        .cs-news-type.cs-width-medium.uk-text-right.uk-flex.uk-flex-middle
+          i.cs-icon-medium.uk-icon-thumbs-o-up.uk-icon-justify
+        .uk-margin-left
+          .cs-news-time 3 minites ago
+          .cs-news-title build #123 has been successfully finished
+
+      .uk-flex.uk-panel.uk-panel-divider
+        .cs-news-type.cs-width-medium.uk-text-right.uk-flex.uk-flex-middle
+          i.cs-icon-medium.uk-icon-send-o.uk-icon-justify
+        .uk-margin-left
+          .cs-news-time 3 minites ago
+          .cs-news-title myuser created application
+
+  hr
+
+  .cs-comments
+    .cs-article.uk-article
+      h2.cs-article-title.uk-article-title
+        i.uk-icon-comments
+        span.uk-margin-left Comments
+
+    .cs-comments-panel.uk-panel
+      .cs-comments-panel-author.uk-panel-title
+        i.uk-icon-user
+        span.cs-margin-left Spammer
+      p Wow!! What awesome article, thank you!! http://example.com
 
 script#template-app-view type="text/template"
   .cs-article.uk-article
-    h1.cs-article-title.uk-article-title <%- name %>
+    h1.cs-article-title.uk-article-title
+      i.uk-icon-leaf
+      span.uk-margin-left <%- name %>
     p.cs-article-lead.uk-article-lead TODO: description
 
 javascript:
@@ -10,7 +91,5 @@ javascript:
 
 coffee:
   jQuery ->
-    el = $('.cs-app-container')
-
     App.fetch(APP_NAME).then (app)->
-      el.append app.render()
+      $('.cs-app-header').append app.render()

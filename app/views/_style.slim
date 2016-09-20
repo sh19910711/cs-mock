@@ -64,6 +64,8 @@ sass:
 
   .cs-dashboard
     .cs-news
+      &-type
+        width: 32px
       &-time
         color: $text-color-neutral
       &-title
@@ -129,6 +131,14 @@ sass:
     & > *
       color: $text-color
 
+  .cs-comments
+    &-panel
+      background: $color-light
+      padding: 6px 12px
+      border-radius: 3px
+      &, &-author
+        color: $text-color
+
   .cs-jumbotron
     &
       padding: 36px 0
@@ -142,6 +152,9 @@ sass:
       font-family: 'Source Sans Pro', sans-serif
       color: #fff
       margin: 32px 0
+
+  .cs-margin-left
+    margin-left: 6px
 
   .cs-grid
     padding-top: 32px
