@@ -21,7 +21,7 @@ conf['production'] = {
 
 # connect database
 env_conf = conf[ENV['RACK_ENV'] || 'development']
-FileUtils.rm env_conf['database'] if File.exists?(env_conf['database'])
+FileUtils.rm env_conf['database'] if File.exists?(env_conf['database'] || '')
 ActiveRecord::Base.establish_connection(env_conf)
 
 ActiveRecord::Schema.define do
