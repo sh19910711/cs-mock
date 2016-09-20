@@ -9,9 +9,16 @@ install:
   - bundle --version
   - bundle install -j4
 
+before_script:
+  - source script/xvfb_source.bash
+
 script:
   - "$(npm bin)/coffee test/screenshot.coffee docs/screenshot/"
   - "for x in docs/screenshot/*.png; do bash script/upload.bash $x; done"
+
+cache:
+  - bundler
+  - node_modules
 
 deploy:
   provider: heroku
