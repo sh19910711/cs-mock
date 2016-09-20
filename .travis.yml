@@ -2,11 +2,16 @@ language: node_js
 node_js: 6.3.1
 
 install:
+  - npm install
+
   - rvm install 2.3.1 --install --binary --fuzzy
+  - ruby --version
+  - bundle --version
   - bundle install -j4
 
 script:
-  - echo to add tests
+  - "$(npm bin)/coffee test/screenshot.coffee docs/screenshot/"
+  - "for x in docs/screenshot/*.png; do bash script/upload.bash $x; done"
 
 deploy:
   provider: heroku
