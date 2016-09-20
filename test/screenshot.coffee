@@ -1,8 +1,10 @@
 Nightmare = require('nightmare')
 
+baseUrl = process.argv[2]
+
 class Runner extends Nightmare
   constructor: ->
-    @dir = process.argv[2]
+    @dir = process.argv[3]
     super waitTimeout: 3000
     @
 
@@ -14,7 +16,7 @@ class Runner extends Nightmare
 new Runner()
   .viewport 1024, 768
 
-  .goto 'https://csmock-sh19910711.c9users.io'
+  .goto baseUrl
   .wait('.cs-leading')
   .capture('001_home')
 
