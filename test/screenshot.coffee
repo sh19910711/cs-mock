@@ -17,26 +17,31 @@ new Runner()
   .viewport 1024, 768
 
   .goto baseUrl
-  .wait('.cs-leading')
-  .capture('001_home')
+	.wait 1000
+  .wait '.cs-leading'
+  .capture '001_home'
 
   .click 'a[href="/auth/login"]'
-  .wait('.cs-form')
-  .capture('002_signin')
+	.wait 1000
+  .wait '.cs-form'
+  .capture '002_signin'
 
   .click 'input[type="submit"]'
-  .wait('.cs-app-link')
-  .capture('003_dashboard')
+	.wait 1000
+  .wait '.cs-app-link'
+  .capture '003_dashboard'
 
   .click 'a[href="/apps"]'
-  .wait('.cs-apps')
-  .wait('.cs-app-link')
-  .capture('004_apps')
+	.wait 1000
+  .wait '.cs-apps'
+  .wait '.cs-app-link'
+  .capture '004_apps'
 
   .click 'a[href="/apps/plus-one-counter"]'
-  .wait('.cs-app')
-  .wait('.cs-app-header')
-  .capture('005_apps_show')
+	.wait 1000
+  .wait '.cs-app'
+  .wait '.cs-app-header'
+  .capture '005_apps_show'
 
   .end()
   .then (res)-> console.log(res)
