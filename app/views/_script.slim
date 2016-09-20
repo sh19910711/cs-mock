@@ -24,14 +24,21 @@ coffee:
           .done (res)->
             resolve res['applications'].map (app)->
               new App(app)
-          .fail (res)->
-            reject(res)
+          .fail reject
+
+    @fetch: (name)->
+      new Promise (resolve, reject)->
+        Mgmt.request('GET', "/apps/#{name}")
+          .done (app)->
+            resolve new App(app)
+          .fail reject
 
     constructor: (detail)->
       @name = detail.name
       @desc = 'TODO: app description?'
 
     render: ->
-      el = $(renderTemplate('app-panel', @))
-      el.find('.cs-app-link').attr('href', "/apps/#{@name}")
+      el = $(renderTemplate('app-view', @))
+      link = if el.hasClass('cs-app-link') then el else el.find('.cs-app-link')
+      link.attr('href', "/apps/#{@name}")
       el

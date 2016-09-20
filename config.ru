@@ -6,6 +6,9 @@ if development?
   require 'sinatra/reloader'
 end
 
+# setup database
+require_relative 'db'
+
 # load apps
 require_relative 'app/base'
 require_relative 'app/codestand_io'
