@@ -8,8 +8,15 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 
 gem 'activerecord'
-group(:development, :test) { gem 'sqlite3' }
-group(:production) { gem 'pg' }
+
+if dburl = ENV['DATABASE_URL']
+  case URI.parse(dburl).scheme
+  when 'mysql'; gem 'mysql2'
+  when 'postgres'; gem 'pg'
+  end
+else
+  gem 'sqlite3'
+end
 
 gem 'slim'
 gem 'sass'
