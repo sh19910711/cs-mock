@@ -11,6 +11,7 @@ install:
 
 before_script:
   - source script/xvfb_source.bash
+  - bundle exec rake db:init
 
 script:
   - bash script/run_server.bash
